@@ -1,2 +1,2 @@
-# Boris-Bikes
-This is a program to track 'Boris Bike' around London
+# Boris Bikes
+A program to track Boris Bikes around London
