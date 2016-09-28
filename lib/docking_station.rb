@@ -6,6 +6,7 @@ class DockingStation
 
   def initialize
     @bikes = []
+    @capacity = 20
   end
 
   def release_bike
@@ -14,7 +15,7 @@ class DockingStation
   end
 
   def dock(bike)
-    fail 'Docking station full' if @bikes.count >= 20
+    fail 'Docking station full' if @bikes.count >= @capacity
     @bikes << bike
   end
 end
