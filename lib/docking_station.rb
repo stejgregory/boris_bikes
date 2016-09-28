@@ -10,8 +10,8 @@ class DockingStation
  end
 
  def dock(bike)
-   # We need to return the bike we dock
-   @bike = bike
+  fail 'Docking station full' if @bike 
+  @bike = bike
  end
 
 end
