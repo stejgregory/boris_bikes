@@ -4,10 +4,10 @@ describe DockingStation do
   it { is_expected.to respond_to :release_bike }
   it { is_expected.to respond_to(:dock).with(1).argument }
 
-  #it "produces working bikes" do
-  #  red = subject.release_bike
-  #  expect(red).to be_working
-  #end
+  it "releases working bikes" do
+    @twentybikes = Bike.new
+    expect(@twentybikes).to be_working
+  end
 
   it "docks something" do
     bike = Bike.new
@@ -34,10 +34,13 @@ describe DockingStation do
     it "should not release infinite bikes" do
       expect {subject.release_bike}.to raise_error ("Oh no! No bikes available!")
     end
+    it "should not release a broken bike" do
+      expect{subject.broken?.release_bike}.to raise_error ("Oh no! No bikes available!")
+    end
   end
 
   describe '#dock' do
-    it "should not accept more than 20 bikes" do
+    it "should not accept more than capacity" do
       subject.capacity.times { subject.dock Bike.new}
       expect { subject.dock Bike.new}.to raise_error ("Docking station full")
     end
