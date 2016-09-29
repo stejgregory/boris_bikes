@@ -5,9 +5,12 @@ class DockingStation
     @twentybikes = []
   end
 	def release_bike
-    raise "Oh no! No bikes available!" if @twentybikes.empty?
+    raise "Oh no! No bikes available!" if empty?
     @twentybikes.pop
 	end
+  def empty?
+    @twentybikes.empty?
+  end
   def full?
     @twentybikes.count >= 20
   end
@@ -16,5 +19,5 @@ class DockingStation
 		@twentybikes << bike
 	end
 	attr_reader :bike
-
+  private :empty?, :full?
 end
