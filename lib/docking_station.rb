@@ -8,7 +8,7 @@ class DockingStation
   end
 	def release_bike
     raise "Oh no! No bikes available!" if empty?
-    raise "Oh no! No bikes available!" if broken?
+    raise "Oh no! No bikes available!" if @twentybikes.last.broken?
     @twentybikes.pop
 	end
   def empty?
